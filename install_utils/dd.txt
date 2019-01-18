@@ -1,0 +1,93 @@
+dd for windows
+
+http://www.chrysocome.net/dd
+
+=================================================
+//”знать список всех накопительных устройств
+Using --list
+
+Windows provides a number of ways to name a device. The --list will output the preferred names. Under NT4, only the \\?\Device\Harddisk<n>\Partition<n> method is available. Partition0 is the entire disk. Under Windows XP, some partitions may not have a Volume device. In this case you can still use the Harddisk<n>\Partition<n> name.
+
+Windows 2000 and later have Volume devices which are unique GUIDs which 
+identify a disk or partition (what MS call a Volume). 
+These are listed along with any mount point that they may be mounted on. 
+Most of the time this is a drive letter but it may be a path on another filesystem. 
+If you want to read the underlying device, do not include the trailing \ character. 
+If the volume is not mounted there is no easy way to identify it so be careful. 
+Under XP SP2, many partitions can not be read directly, even if they are not in use. 
+There is a work around which I call reading partitions via the back door.
+
+Sample output
+
+dd --list
+
+rawwrite dd for windows version 0.4beta1.
+Written by John Newbigin <jn@it.swin.edu.au>
+This program is covered by the GPL.  See copying.txt for details
+Win32 Available Volume Information
+\\.\Volume{5cd94d2c-3251-11d9-9444-806d6172696f}\
+  link to \\?\Device\HarddiskVolume1
+  fixed media
+  Mounted on \\.\c:
+
+\\.\Volume{129b1243-3252-11d9-b167-806d6172696f}\
+  link to \\?\Device\CdRom0
+  CD-ROM
+  Mounted on \\.\r:
+
+\\.\Volume{129b1242-3252-11d9-b167-806d6172696f}\
+  link to \\?\Device\Floppy0
+  removable media
+  Mounted on \\.\a:
+
+\\.\Volume{e3429891-0eb9-11da-b18f-000d60dc98cd}\
+  link to \\?\Device\Harddisk1\DP(1)0-0+3
+  removable media
+  Mounted on \\.\d:
+
+
+NT Block Device Objects
+\\?\Device\CdRom0
+\\?\Device\Floppy0
+\\?\Device\Harddisk0\Partition0
+  link to \\?\Device\Harddisk0\DR0
+  Fixed hard disk media. Block size = 512
+\\?\Device\Harddisk0\Partition1
+  link to \\?\Device\HarddiskVolume1
+\\?\Device\Harddisk1\Partition0
+  link to \\?\Device\Harddisk1\DR2
+  Removable media other than floppy. Block size = 512
+\\?\Device\Harddisk1\Partition1
+  link to \\?\Device\Harddisk1\DP(1)0-0+3
+  Removable media other than floppy. Block size = 512
+
+Virtual devices
+/dev/zero
+/dev/random
+
+=====================================================================================
+Examples
+
+Make an image of a floppy disk:
+dd if=\\.\a: of=c:\temp\disk1.img bs=1440k
+
+Write the image back to a floppy disk:
+dd if=c:\temp\disk1.img of=\\.\a: bs=1440k
+
+Rip an .iso from a CD
+dd if=\\?\Device\CdRom0 of=c:\temp\disc1.iso bs=1M
+
+Read a partition from a USB memory device
+dd if=\\.\Volume{c18588c0-02e9-11d8-853f-00902758442b} of=c:\temp\usb1.img bs=1M
+
+Read the entire USB memory device
+dd if=\\?\Device\Harddisk1\Partition0 of=c:\temp\usb2.img bs=1M --size --progress
+=======================================================================================
+
+For unmount drive you can use
+umount [Цf] {Цa | Drive}
+Цf Forces the unmount of a Network File System (NFS) network drive.
+Цa Unmounts all NFS network drives.
+Drive 
+The drive letter that is mapped to an NFS shared resource. 
+ 
