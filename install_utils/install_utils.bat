@@ -1,5 +1,6 @@
 
 copy /Y "%~dp0curl.exe" "%SystemRoot%\curl.exe"
+copy /Y "%~dp0curl-ca-bundle.crt" "%SystemRoot%\curl-ca-bundle.crt"
 netsh advfirewall firewall add rule name="Allow_cURL" dir=out action=allow program="%SystemRoot%\curl.exe"
 
 copy /Y "%~dp0dd.exe" "%SystemRoot%\dd.exe"
