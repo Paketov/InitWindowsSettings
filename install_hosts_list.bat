@@ -1,1 +1,1 @@
-copy /Y %~dp0hosts C:\windows\system32\drivers\etc
+copy /Y "%~dp0hosts" %SystemRoot%\system32\drivers\etc
