@@ -15,5 +15,11 @@ reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\mrxsmb" /f /v "Start" /t REG_DWO
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\mrxsmb10" /f /v "Start" /t REG_DWORD /d 2
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\mrxsmb20" /f /v "Start" /t REG_DWORD /d 2
 
+rem Enable SMB protocols
+powershell -Command "Enable-NetAdapterBinding -Name (Get-NetAdapter | Where Name -like "*Ethernet*")[0].Name -ComponentID ms_msclient"
+powershell -Command "Enable-NetAdapterBinding -Name (Get-NetAdapter | Where Name -like "*Ethernet*")[0].Name -ComponentID ms_server"
+rem Enable NetBIOS
+powershell -Command "((gwmi win32_networkadapterconfiguration) | Where DefaultIPGateway -eq 192.168.1.1).settcpipnetbios(0)"
+
 schtasks /change /tn "\Microsoft\Windows\Work Folders\Work Folders Logon Synchronization" /enable
 schtasks /change /tn "\Microsoft\Windows\Work Folders\Work Folders Maintenance Work" /enable

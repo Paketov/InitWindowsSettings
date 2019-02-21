@@ -51,3 +51,9 @@ regedit.exe /S "%~dp0encreese_dns_cache.reg"
 call set_animations.bat
 timeout 2
 
+call change_net_adapter_settings.bat
+timeout 2
+
+call disable_smb.bat
+timeout 2
+
