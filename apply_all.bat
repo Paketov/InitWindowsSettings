@@ -57,3 +57,5 @@ timeout 2
 call disable_smb.bat
 timeout 2
 
+call disable_time_sync.bat
+timeout 2
