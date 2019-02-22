@@ -8,4 +8,4 @@ powershell -Command "Disable-NetAdapterBinding -Name (Get-NetAdapter | Where Nam
 powershell -Command "Disable-NetAdapterBinding -Name (Get-NetAdapter | Where Name -like "*Ethernet*")[0].Name -ComponentID ms_pacer"
 
 rem Disable NetBIOS
-powershell -Command "((gwmi win32_networkadapterconfiguration) | Where DefaultIPGateway -eq 192.168.1.1).settcpipnetbios(2)"
+powershell -Command "((gwmi win32_networkadapterconfiguration) | Where DefaultIPGateway -Like "192.*").settcpipnetbios(2)"
