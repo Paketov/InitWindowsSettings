@@ -92,10 +92,12 @@
 0.0.0.0	dmd.metaservices.microsoft.com
 0.0.0.0 dns.msftncsi.com
 0.0.0.0	sls.microsoft.com
+0.0.0.0	iecvlist.microsoft.com
 0.0.0.0	go.microsoft.com
 0.0.0.0 msftncsi.com
 0.0.0.0 www.msftncsi.com
 0.0.0.0	windowsupdate.com
+0.0.0.0	ctldl.windowsupdate.com
 0.0.0.0	activation-v2.sls.microsoft.com
 
 173.192.121.250	googleads.g.doubleclick.net

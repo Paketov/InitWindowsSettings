@@ -11,9 +11,12 @@ reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\TermService" /f /v "Start" /t RE
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\MSDTC" /f /v "Start" /t REG_DWORD /d 4
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\DPS" /f /v "Start" /t REG_DWORD /d 4
 
+rem reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\mpsdrv" /f /v "Start" /t REG_DWORD /d 4
+rem HKLM\System\CurrentControlSet\Services\mpsdrv 3
 
 reg DELETE "HKLM\SYSTEM\CurrentControlSet\Services\WdNisSvc" /f
 reg DELETE "HKLM\SYSTEM\CurrentControlSet\Services\WinDefend" /f
+
 
 rem schtasks /change /tn "\Microsoft\Windows\Location\Notifications" /disable
 

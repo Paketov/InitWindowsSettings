@@ -9,6 +9,7 @@ reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer" /f /v "Start" /t R
 
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\srv" /f /v "Start" /t REG_DWORD /d 4
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\srv2" /f /v "Start" /t REG_DWORD /d 4
+reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\srvnet" /f /v "Start" /t REG_DWORD /d 4
 
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\mrxsmb" /f /v "Start" /t REG_DWORD /d 4
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\mrxsmb10" /f /v "Start" /t REG_DWORD /d 4
