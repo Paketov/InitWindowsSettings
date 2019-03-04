@@ -10,6 +10,7 @@ reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\NcbService" /f /v "Start" /t REG
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\TermService" /f /v "Start" /t REG_DWORD /d 4
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\MSDTC" /f /v "Start" /t REG_DWORD /d 4
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\DPS" /f /v "Start" /t REG_DWORD /d 4
+reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\WdiServiceHost" /f /v "Start" /t REG_DWORD /d 4
 
 rem reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\mpsdrv" /f /v "Start" /t REG_DWORD /d 4
 rem HKLM\System\CurrentControlSet\Services\mpsdrv 3
