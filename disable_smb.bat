@@ -1,4 +1,4 @@
-cd "%~dp0"
+cd /D "%~dp0"
 
 netsh advfirewall firewall delete rule name="Allow_SMB"
 netsh advfirewall firewall delete rule name="Allow_SMB2"

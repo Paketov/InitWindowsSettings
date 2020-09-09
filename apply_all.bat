@@ -1,6 +1,5 @@
-rem digital hell ooOO to everyone!)
 
-cd "%~dp0"
+cd /D "%~dp0"
 
 call disable_windows_defender.bat
 timeout 2
@@ -59,3 +58,14 @@ timeout 2
 
 call disable_time_sync.bat
 timeout 2
+
+call set_powercfg.bat
+timeout 2
+
+call change_computer_name.bat
+timeout 2
+
+fsutil usn deletejournal /d c:
+
+
+
